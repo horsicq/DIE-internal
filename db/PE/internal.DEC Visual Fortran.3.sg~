@@ -1,0 +1,15 @@
+// DIE's signature file
+
+init("compiler","DEC Visual Fortran");
+
+function detect(bShowType,bShowVersion,bShowOptions)
+{
+    if(PE.compareEP("5355568b7424..85f657b8........75..8b0d........85c975..33c05f5e5d5bc2....8b7c24..8b5c24..83"))
+    {
+        sVersion="-";
+        sOptions="1996-1998"
+        bDetected=1;
+    }
+
+    return result(bShowType,bShowVersion,bShowOptions);
+}

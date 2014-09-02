@@ -1,0 +1,18 @@
+// DIE's signature file
+// Author: hypn0
+
+init("overlay","debug NB10");
+
+function detect(bShowType,bShowVersion,bShowOptions)
+{
+
+    if (PE.compareOverlay("4e4231300000"))
+        {
+            sVersion="-";
+            sOptions=PE.getGeneralOptions();
+            bDetected=1;
+        }
+    
+    
+return result(bShowType,bShowVersion,bShowOptions);
+}

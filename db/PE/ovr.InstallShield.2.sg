@@ -1,0 +1,17 @@
+// DIE's signature file
+// Author: hypn0
+
+init("overlay","InstallShield data");
+
+function detect(bShowType,bShowVersion,bShowOptions)
+{
+
+    if (PE.findSignature(PE.getOverlayOffset(),PE.getOverlaySize(),"'ISc('")!=-1)
+    {
+        sVersion="19.x";
+        sOptions=PE.getGeneralOptions();
+        bDetected=1;
+    }
+    
+return result(bShowType,bShowVersion,bShowOptions);
+}

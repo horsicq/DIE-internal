@@ -1,0 +1,64 @@
+// DIE's test script
+// Bugreports : horsicq@gmail.com
+//
+// History:
+//
+function load()
+{
+    // call on script load
+    script.addMessage("Loading test script... ");
+}
+function name()
+{
+    // return script's name
+    return "String search";
+}
+function info()
+{
+    // return script's information
+    return "Test Script information\nbla-bla";
+}
+var Binary=BinaryFile;
+function search(sSearchString)
+{
+    var nOffset;
+    var nSize;
+    var bDetected=false;
+    
+    script.addMessage("Search for: "+sSearchString);
+    nOffset=0;
+    nSize=Binary.size();
+    while(nSize>0)
+    {
+        nOffset=Binary.findString(nOffset,nSize,sSearchString);
+        if(nOffset==0xFFFFFFFF)
+        {
+            break;
+        }
+        bDetected=true;
+        script.addMessage("["+script.dwordToHex(nOffset)+"] "+Binary.getString(nOffset+4,100));
+        
+        nOffset++;
+        nSize=(Binary.size()-nOffset);
+    }    
+    if(!bDetected)
+    {
+        script.addErrorMessage("Nothing found");
+    }
+}
+function run()
+{
+    
+    var szCurrentFile=script.getCurrentFileName();
+    var value;
+    var szString;
+    
+    script.addMessage("Open file: "+szCurrentFile);
+    script.addMessage("");
+    
+    if(Binary.setFileName(szCurrentFile))
+    {
+        search("@(#)");
+        search("$Id:");
+    }
+}

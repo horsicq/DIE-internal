@@ -1,0 +1,23 @@
+// DIE's signature file
+// Author: hypn0
+
+init("patcher","R!SC Process Patcher (RPP)");
+
+function detect(bShowType,bShowVersion,bShowOptions)
+{
+    
+ if(PE.compareEP("68........c705................68........68........6a006a006a206a006a006a006a0068........E8........85c0"))
+  {
+    sVersion="1.2i";
+    sOptions="by R!SC";
+    bDetected=1;
+  }    
+ if(PE.compareEP("e8........8038..75..8038..74..8038..75..8078....74..40eb..8038..74..eb..40"))
+  {
+    sVersion="1.4";
+    sOptions="by R!SC";
+    bDetected=1;
+  }    
+    
+return result(bShowType,bShowVersion,bShowOptions);
+}

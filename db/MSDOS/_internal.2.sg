@@ -1,0 +1,15 @@
+// DIE's signature file
+// Author: hypn0 <hypn0@mail.ru>
+
+init("internal","");
+
+function detect(bShowType,bShowVersion,bShowOptions)
+{
+    if(MSDOS.compareEP("b8....8ed88c06....ba....b4..b0..cd2180fb..75..c606......eb....80fb..75..c606......be....bf....b1..9a"))
+    {
+        sName="ISDN driver";
+        bDetected=1;
+    }
+
+    return result(bShowType,bShowVersion,bShowOptions);
+}

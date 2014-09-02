@@ -1,0 +1,16 @@
+// DIE's signature file
+// Author: hypn0
+
+init("patcher","Patch Creation Wizard");
+
+function detect(bShowType,bShowVersion,bShowOptions)
+{
+    
+ if(PE.compareEP("e8........6a00e8........a3........6a0068........6a006a0150e8........6a00e8........558bec5651578b....98"))
+  {
+    sOptions="by Theraphy //Phrozen Crew";
+    bDetected=1;
+  }    
+    
+return result(bShowType,bShowVersion,bShowOptions);
+}

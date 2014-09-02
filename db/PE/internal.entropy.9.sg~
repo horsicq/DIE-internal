@@ -1,0 +1,14 @@
+// DIE's signature file
+// Author: hypn0@mail.ru
+
+// It's a file for internal purposes. Please, don't correct it.
+
+init("internal","");
+
+function detect(bShowType,bShowVersion,bShowOptions)
+{
+    var sResult="";
+    var nDetected=0;
+    sResult=PE.calculateEntropy(0,PE.getSize());
+    return sResult;
+}
